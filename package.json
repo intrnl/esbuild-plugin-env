@@ -2,10 +2,10 @@
 	"type": "module",
 	"name": "@intrnl/esbuild-plugin-env",
 	"description": "Expose environment variables to esbuild",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "intrnl",
 	"license": "MIT",
-	"repository": "https://github.com/intrnl/esbuild-plugin-env",
+	"repository": "github:intrnl/esbuild-plugin-env",
 	"files": [
 		"src/"
 	],
