@@ -20,6 +20,7 @@ export default function envPlugin (options = {}) {
 	const {
 		mode = process.env.NODE_ENV ?? 'development',
 		shim = true,
+		filter = () => true,
 	} = options;
 
 	const envFiles = [
@@ -43,6 +44,10 @@ export default function envPlugin (options = {}) {
 
 			// Grab from process env
 			for (const key in process.env) {
+				if (!filter(key, null)) {
+					continue;
+				}
+
 				const value = process.env[key];
 				define[`process.env.${key}`] ??= JSON.stringify(value);
 			}
@@ -63,6 +68,10 @@ export default function envPlugin (options = {}) {
 				dotenvExpand({ parsed, ignoreProcessEnv: true });
 
 				for (const key in parsed) {
+					if (!filter(key, filename)) {
+						continue;
+					}
+
 					const value = parsed[key];
 					define[`process.env.${key}`] ??= JSON.stringify(value);
 				}
