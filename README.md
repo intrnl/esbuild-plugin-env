@@ -23,6 +23,11 @@ a filter to only inject what you need.
 ```js
 env({
   // Only inject environment variables starting with `APP_`
-  filter: (key, filename) => key.startsWith('APP_'),
+  filter: (key) => key.startsWith('APP_'),
+});
+
+env({
+  // Only inject environment variables from dotenv files
+  filter: (key, filename) => filename,
 });
 ``` 
