@@ -15,7 +15,7 @@ working directory:
 Plugin defaults to `development` mode by default, configurable via `NODE_ENV`
 variable, or through `mode` in the plugin's configuration.
 
-## Filtering environemnt variables
+## Filtering environment variables
 
 By default, the plugin will inject all environment variables, but you can set
 a filter to only inject what you need.
